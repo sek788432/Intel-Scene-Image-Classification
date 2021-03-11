@@ -36,6 +36,10 @@ This Data contains around 25k images of size 150x150 distributed under 6 categor
 
 ---
 
+## [Construct Model from paper](./my_mobilenet.py)
+
+---
+
 ## Result
 ### [My MobileNetV1 (glorot initializaiton)](./Intel_mymobilenet_glorot.ipynb)
 - Accuracy: 87%
