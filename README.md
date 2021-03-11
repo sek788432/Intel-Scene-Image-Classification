@@ -1,5 +1,6 @@
 # Intel-Scene-Image-Classification
-The repo is about using MobileNetV1 model structure to classify scene data from Intel image classification contest.The model can be optimized by using pretrained weights and a semi-supervised learning method called self-training.
+The repo is about using MobileNetV1 model structure to classify scene data from Intel image classification contest.
+The model can be optimized by using pretrained weights and a semi-supervised learning method called self-training.
 
 ---
 
