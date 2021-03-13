@@ -14,7 +14,7 @@ The model can be optimized by using pretrained weights and a semi-supervised lea
 
 ---
 
-## Dataset
+## [Dataset](./data)
 This Data contains around 25k images of size 150x150 distributed under 6 categories.
 - buildings
 - forest
@@ -63,6 +63,11 @@ def dw_block(tensor, channels, strides, alpha=1.0):
     x = Activation('relu')(x)
     return x
 ```
+---
+## Self Training
+- Label unlabeled data from previous classifier with softmax >= 0.7
+- Training Data: 14034 -> 20243
+- [Expanded Training Data](./self_learn_data)
 ---
 
 ## Result
