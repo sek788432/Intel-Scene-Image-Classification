@@ -38,11 +38,35 @@ This Data contains around 25k images of size 150x150 distributed under 6 categor
 ---
 
 ## [Construct Model from paper](./my_mobilenet.py)
+- Convolution Block
+```
+def conv_block(tensor, channels, strides, alpha=1.0):
+    channels = int(channels * alpha)
+    x = Conv2D(channels, kernel_size=(3, 3), strides=strides, padding='same', kernel_initializer = "he_normal")(tensor)   
+    x = BatchNormalization()(x)
+    x = Activation('relu')(x)
+    return x
+```
+- DepthWise Block
 
+```
+def dw_block(tensor, channels, strides, alpha=1.0):
+    channels = int(channels * alpha)
+    # Depthwise
+    x = DepthwiseConv2D(kernel_size=(3, 3), strides=strides, padding='same', depthwise_initializer = "he_normal")(tensor)
+    x = BatchNormalization()(x)
+    x = Activation('relu')(x)
+
+    # Pointwise
+    x = Conv2D(channels, kernel_size=(1, 1), strides=(1, 1), padding='same', kernel_initializer = "he_normal")(x)
+    x = BatchNormalization()(x)
+    x = Activation('relu')(x)
+    return x
+```
 ---
 
 ## Result
-### [My MobileNetV1 (glorot initializaiton)](./Intel_mymobilenet_glorot.ipynb)
+### [My MobileNetV1 (He initializaiton)](./Intel_mymobilenet_glorot.ipynb)
 - Accuracy: 87%
 
 ---
