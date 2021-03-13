@@ -39,7 +39,7 @@ This Data contains around 25k images of size 150x150 distributed under 6 categor
 
 ## [Construct Model from paper](./my_mobilenet.py)
 - Convolution Block
-```
+```python
 def conv_block(tensor, channels, strides, alpha=1.0):
     channels = int(channels * alpha)
     x = Conv2D(channels, kernel_size=(3, 3), strides=strides, padding='same', kernel_initializer = "he_normal")(tensor)   
@@ -49,7 +49,7 @@ def conv_block(tensor, channels, strides, alpha=1.0):
 ```
 - DepthWise Block
 
-```
+```python
 def dw_block(tensor, channels, strides, alpha=1.0):
     channels = int(channels * alpha)
     # Depthwise
